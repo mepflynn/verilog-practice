@@ -22,9 +22,8 @@ module test_HA;
                 // Error detected!
                 $display("Error: Output = %b, reference = %b",{c,s},ref);
             end
-            else begin 
-                ab = ab + 1;
-                ref = ref + 1;
+            ab = ab + 1;
+            ref = ref + 1;
         end
     end
 endmodule
