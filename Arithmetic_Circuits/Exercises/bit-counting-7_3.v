@@ -1,6 +1,6 @@
 // A structural implementation for a bit counter 
 // using FAs to count the number of ones on a 7-bit input
-module count_73(in,count)
+module count_73(in,count);
     // 7 input bits to count
     input [6:0] in;
 
@@ -31,12 +31,28 @@ module count_73(in,count)
     // MSB is high when there's a four by an path,
     // Either carry-out of stage two adders or both
     // sum outputs are high at once
-    assign out[2] = (co_5 | co_4 | (s_4 & s_5));
+    assign count[2] = (co_5 | co_4 | (s_4 & s_5));
 
     // There's a two if only one of the stage two
     // sums is one, other is zero
-    assign out[1] = s_4 ^ s_5;
+    assign count[1] = s_4 ^ s_5;
 
-    assign out[0] = s_3;
+    assign count[0] = s_3;
 
+endmodule
+
+
+// Full Adder
+module FA(a,b,ci,s,co);
+    input a;
+    input b;
+    input ci;
+
+    // Sum (LSB) and carry-out (MSB) of the the overall sum
+    output s;
+    output co;
+
+    assign s = a ^ b ^ ci;
+
+    assign co = (a & b) | (b & ci) | (a & ci);
 endmodule
