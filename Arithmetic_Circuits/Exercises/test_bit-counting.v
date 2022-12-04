@@ -5,6 +5,8 @@ module test_bit-counting;
     // 3-bit output counting ones on input
     wire [2:0] count;
 
+    count_73 c0(in,count);
+
 
     // Internal test signals
     reg [2:0] reference_count;
