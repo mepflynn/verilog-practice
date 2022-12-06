@@ -1,15 +1,16 @@
 // 8-bit Ripple Carry Adder - Various implementations
 
 // Simple behavioral
-module RCA(a,b,s);
+module RCA(a,b,ci,s);
     // inputs
     input [7:0] a;
     input [7:0] b;
+  	input ci;
 
     //outputs
     output [8:0] s;
 
-    assign s = a + b;
+    assign s = a + b + ci;
 
 endmodule
 
